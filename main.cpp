@@ -6,8 +6,8 @@ using namespace std;
 int main()
 {
 
-    Book b1("C++面向对象", "张三", "人民邮电出版社", "97800111", "B001", 49.5, false);
-    Book b2("数据结构", "李四", "机械工业出版社", "97800222", "B002", 55.0, false);
+    Book *b1=new NormalBook("C++面向对象", "张三", "人民邮电出版社", "97800111", "B001", 49.5, false);
+    Book *b2=new NormalBook("数据结构", "李四", "机械工业出版社", "97800222", "B002", 55.0, false);
 
     Student stu("小明", "2026001");
 

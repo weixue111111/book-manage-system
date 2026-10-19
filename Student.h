@@ -1,6 +1,6 @@
 #pragma once
 #include<string>
-#include<vector>
+#include<vector>//vector容器，用来存放学生接到的所有book对象
 #include"Book.h"
 using namespace std;
 
@@ -10,18 +10,18 @@ private:
     string m_name;
     string m_stuId;
     int m_borrowCount;       //当前借了几本书
-    vector<Book> m_borrowBooks; 
+    vector<Book*> m_borrowBooks; //展现组合的关系
 public:
     //构造
     Student();
     Student(string name, string stuId);
 
     
-    bool borrowBook(Book& book);
+    bool borrowBook(Book*book);
     //还书
-    bool returnBook(Book& book);
+    bool returnBook(Book*book);
     
-    void showStudentInfo();
+    void showStudentInfo();//展示学生信息
 
     //get
     string getName();

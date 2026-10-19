@@ -95,7 +95,7 @@ void Book::setIsBorrowed(bool isBorrowed)
 	m_isBorrowed = isBorrowed;
 }
 
-void Book::display()
+void Book::display()const
 {
 	cout<<"Title: " << m_title << endl;
 	cout<<"Author: " << m_author << endl;
@@ -104,5 +104,34 @@ void Book::display()
 	cout<<"ID: " << m_id << endl;
 	cout<<"Price: " << m_price << endl;
 	cout<<"Is Borrowed: " << (m_isBorrowed ? "Yes" : "No") << endl;
+}
+NormalBook::NormalBook(string title, string author, string publisher, string ISBN, string id, double price, bool isBorrowed) :Book(title, author, publisher, ISBN, id, price, isBorrowed) {
 
 }
+void NormalBook::showInfo()const {
+	cout << "====普通图书信息====" << endl;
+	display();
+}
+Magazine::Magazine(string title, string author, string publisher, string ISBN, string id, double price, bool isBorrowed, int issue) :Book(title, author, publisher, ISBN, id, price, isBorrowed), m_issue(issue) {
+
+}
+void Magazine::showInfo()const {
+	cout<< "====杂志信息====" << endl;
+	display();
+	cout << "杂志期号： " << m_issue << endl;
+}
+EBook::EBook(string title, string author, string publisher, string ISBN, string id, double price, bool isBorrowed, string url) :Book(title, author, publisher, ISBN, id, price, isBorrowed), m_url(url) {
+
+}
+void EBook::showInfo()const {
+	cout << "====电子书信息====" << endl;
+	display();
+	cout << "资源链接： " << m_url << endl;
+}
+int Book::getCount() {
+	return m_count;
+}
+void Book::setCount(int cnt) {
+	m_count = cnt;
+}
+
